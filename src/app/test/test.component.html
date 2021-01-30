@@ -1,0 +1,111 @@
+<body style="text-align: center;">
+    <h2>1- Hello </h2>
+    <h1> Hello {{name}} </h1>
+    <hr>
+
+    <h2>2- property Binding</h2>
+    <!-- property Binding -->
+    <img [src]="imgUrl" alt=""><br>
+    <hr>
+
+
+    <h2>3- Event Handler</h2>
+    <!-- Event Handler -->
+    <button (click)="buttonEvent()">click me Event Handler</button>
+    <div>{{buttonText}}</div><br>
+    <hr>
+
+
+    <h2>4- Event Binding</h2>
+    <!-- Event Binding -->
+    <input (input)="onInput($event)" type="text"><br>
+    <div>{{inputText}}</div><br>
+    <hr>
+
+    <h2>5- Disabled changing</h2>
+    <!-- Disabled changing -->
+    <button (click)="buttonEvent2()" [disabled]='!buttonDisabled'>click me Disabled changing</button>
+    <div>{{buttonText2}}</div><br>
+    <hr>
+
+
+    <h2>6- two way binding</h2>
+    <!-- two way binding  -->
+    <input type="text" [(ngModel)]="inputText2">
+    <div>{{inputText2}}</div><br>
+    <hr>
+
+
+    <h2>7- innerHTML</h2>
+    <!-- innerHTML -->
+    <div [innerHTML]="innerTest"></div><br>
+    <hr>
+
+
+    <h2>8- Attribute Directive</h2>
+    <!-- Attribute Directive -->
+    <button (click)="onButtonClicked()">Test Attribute Directive</button>
+    <p [ngStyle]="{backgroundColor : getColor()}">Test Attribute Directive</p> <br>
+    <hr>
+
+
+    <h2>9- Conditional Class</h2>
+    <!-- Conditional Class -->
+    <button (click)="onButton2Clicked()">Test Attribute Directive Conditional Class</button>
+    <!-- if button2Clicked == true > change class -->
+    <p [ngClass]="{clicked:button2Clicked==true}">
+        Test conditional Class
+    </p><br>
+    <hr>
+
+
+    <h2>10- Class Property</h2>
+    <!-- Class Property -->
+    <button (click)="onButton3Clicked()">Test Class</button>
+    <!-- if button clicked set class clicked -->
+    <p [class]="button3Clicked && 'clicked'" [ngStyle]="{backgroundColor:getColor3()}">
+        Test Class
+    </p><br>
+    <hr>
+
+
+    <h2>11- Structure Directiv</h2>
+    <!-- Structure Directiv -->
+    <button (click)="onButton4Clicked()">ng-template</button><br>
+    <!-- *ngIf -->
+    <p *ngIf="button4Clicked"> Hello button clicked</p>
+    <p *ngIf="button4Clicked; else offline">online</p>
+    <!-- Hidden paragraph > displayed in else -->
+    <ng-template #offline>offline</ng-template><br>
+    <hr>
+
+
+    <h2>12- ngFor & ngSwitch</h2>
+    <!-- ngFor >> loop -->
+    <div *ngFor="let element of elementsArray let i= index">
+        <b>{{i}}</b> - this is {{element.name}} his age is {{element.age}}
+
+        <!-- ngSwitch -->
+        <div [ngSwitch]="element.age">
+            <div *ngSwitchCase='15'>shahd</div>
+            <div *ngSwitchCase='23'> Nada </div>
+            <div *ngSwitchCase='24'> May</div>
+            <div *ngSwitchCase='26'> Ayat </div>
+
+        </div>
+    </div>
+    <hr>
+
+    <h2>13- HTMLDivElement</h2>
+    <!-- HTMLDivElement -->
+    <div #d class="clicked">Nada</div>
+    <button (click)="submit(d)">log HTMLDivElement</button>
+    <div>{{elemHTMLDiv}}</div>
+    <hr>
+
+    
+    <h2>13- View Child</h2>
+    <!-- View Child -->
+    <div #v >Test viewChild</div>
+    <button (click)="viewChild()" >click to Test viewChild</button>
+</body>
